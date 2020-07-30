@@ -1,0 +1,12 @@
+{% extends "table/base.html" %}
+{% block content%}
+  <h1 class="mb-3">Your Tables {{ view.kwargs.username }} </h1>
+	{% for table in tables %}
+		<article class="media content-section">
+  			<div class="media-body">
+          <h2><a class="article-title" href="{% url 'table-detail' table.id %}">{{ table.title }}</a></h2>
+    			<p class="article-content">{{ table.content | safe }}</p>
+      </div>
+		</article>
+	{% endfor %}
+{% endblock content %}
